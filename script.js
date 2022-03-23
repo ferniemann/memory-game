@@ -1,13 +1,40 @@
-const fieldSize = 16;
-const players = 5;
+const btnSettings = document.querySelector("#settings");
+
+const fieldSize = localStorage.getItem("size") || 16;
+const players = localStorage.getItem("players") || 3;
 const images = [];
 
 let turn = 0;
 let playersTurn = 1;
 let blocked = false;
 
+btnSettings.addEventListener("click", toggleModal);
+
 getImages();
 renderGameStats();
+
+function toggleModal() {
+    const modalSettings = document.querySelector("#modal");
+    const settingsPlayers = document.querySelector("#players");
+    const settingsFieldSize = document.querySelector("#size");
+    const btnSave = document.querySelector("#save-settings");
+
+    settingsPlayers.value = players;
+    settingsFieldSize.value = fieldSize;
+    modalSettings.hidden = false;
+
+    btnSave.addEventListener("click", saveSettings);
+}
+
+function saveSettings() {
+    const settingsPlayers = document.querySelector("#players");
+    const settingsFieldSize = document.querySelector("#size");
+
+    localStorage.setItem("players", settingsPlayers.value);
+    localStorage.setItem("size", settingsFieldSize.value);
+
+    location.reload();
+}
 
 function getImages() {
     for (let i = 1; i < fieldSize / 2 + 1; i++) {

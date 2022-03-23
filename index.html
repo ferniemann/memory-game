@@ -11,6 +11,25 @@
         <main>
             <section id="game-stats"></section>
             <section id="game-field"></section>
+            <section id="modal" hidden>
+                <p>Settings</p>
+                <div class="settings">
+                    <div class="setting-wrapper">
+                        <label for="players">Players</label>
+                        <input type="number" name="" id="players" />
+                    </div>
+                    <div class="setting-wrapper">
+                        <label for="size">Playfield Size</label>
+                        <select name="" id="size">
+                            <option value="16">4 x 4</option>
+                            <option value="20">5 x 4</option>
+                            <option value="25">5 x 5</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="save-settings">Save and start new game</button>
+            </section>
+            <button id="settings">Settings</button>
         </main>
         <script src="script.js"></script>
     </body>
