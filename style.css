@@ -18,6 +18,7 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
+    counter-reset: card;
 }
 
 main {
@@ -82,6 +83,17 @@ button {
     height: 20vw;
     aspect-ratio: 1;
     position: relative;
+}
+
+.overlay::before {
+    counter-increment: card;
+    font-size: 0.5rem;
+    content: counter(card);
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1;
 }
 
 .game-card > img {
