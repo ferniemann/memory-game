@@ -111,22 +111,16 @@ button {
     transition-delay: 0.5s;
 }
 
-.overlay.hide,
-.overlay.correct {
+.overlay.flip,
+.overlay.match {
     transform: scaleX(0);
-}
-
-.overlay.hide {
     transition: 0.5s;
 }
 
-img.show,
-img.correct {
+img.flip,
+img.match {
     z-index: 1;
     transform: scaleX(1);
-}
-
-img.show {
     transition: 0.5s;
     transition-delay: 0.5s;
 }

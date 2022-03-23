@@ -107,25 +107,19 @@ function toggleCard(e) {
         const overlay = e.target;
         const image = overlay.nextElementSibling;
 
-        overlay.classList.toggle("hide");
-        image.classList.toggle("show");
+        overlay.classList.toggle("flip");
+        image.classList.toggle("flip");
 
         if (turn === 2) {
             blocked = true;
-            const overlays = document.querySelectorAll(".hide");
-            const images = document.querySelectorAll(".show");
+            const cards = document.querySelectorAll(".flip");
 
             if (checkMatch(images)) {
                 updateScore();
-                images.forEach((el) => {
+                cards.forEach((el) => {
                     el.parentElement.removeEventListener("click", toggleCard);
-                    el.classList.add("correct");
-                    el.classList.toggle("show");
-                });
-
-                overlays.forEach((el) => {
-                    el.classList.add("correct");
-                    el.classList.toggle("hide");
+                    el.classList.add("match");
+                    el.classList.toggle("flip");
                 });
 
                 blocked = false;
@@ -137,8 +131,7 @@ function toggleCard(e) {
                 }
 
                 setTimeout(function () {
-                    overlays.forEach((el) => el.classList.toggle("hide"));
-                    images.forEach((el) => el.classList.toggle("show"));
+                    cards.forEach((el) => el.classList.toggle("flip"));
 
                     checkPlayersTurn();
                     blocked = false;
@@ -150,8 +143,9 @@ function toggleCard(e) {
     }
 }
 
-function checkMatch(cards) {
-    if (cards[0].src === cards[1].src) {
+function checkMatch() {
+    const images = document.querySelectorAll("img.flip");
+    if (images[0].src === images[1].src) {
         return true;
     } else {
         return false;
