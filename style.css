@@ -93,7 +93,6 @@ button {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
-    z-index: 1;
 }
 
 .game-card > img {
@@ -140,6 +139,7 @@ img.show {
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 2;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 1rem 1rem var(--clr-bg-gray);
 }
@@ -175,6 +175,10 @@ img.show {
     width: 5rem;
     padding: 0.25rem 0.5rem;
     border: none;
+}
+
+#close {
+    background-color: salmon;
 }
 
 @media screen and (min-width: 768px) {

@@ -18,12 +18,16 @@ function toggleModal() {
     const settingsPlayers = document.querySelector("#players");
     const settingsFieldSize = document.querySelector("#size");
     const btnSave = document.querySelector("#save-settings");
+    const btnClose = document.querySelector("#close");
 
     settingsPlayers.value = players;
     settingsFieldSize.value = fieldSize;
     modalSettings.hidden = false;
 
     btnSave.addEventListener("click", saveSettings);
+    btnClose.addEventListener("click", function () {
+        modalSettings.hidden = true;
+    });
 }
 
 function saveSettings() {
