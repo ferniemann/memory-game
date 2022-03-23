@@ -60,14 +60,14 @@ section {
 #game-field {
     background-color: var(--clr-bg-gray);
     display: grid;
-    grid-template-columns: repeat(4, min(10vw, 10rem));
+    grid-template-columns: repeat(4, 20vw);
     gap: 0.5rem;
     justify-content: center;
     justify-items: center;
 }
 
 .game-card {
-    height: min(10vw, 10rem);
+    height: 20vw;
     aspect-ratio: 1;
     position: relative;
 }
@@ -106,4 +106,14 @@ img.correct {
 img.show {
     transition: 0.5s;
     transition-delay: 0.5s;
+}
+
+@media screen and (min-width: 768px) {
+    #game-field {
+        grid-template-columns: repeat(4, 10vw);
+    }
+
+    .game-card {
+        height: 10vw;
+    }
 }
